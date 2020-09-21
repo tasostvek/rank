@@ -13,6 +13,21 @@
   }
 }
 
+.label-input{
+  margin-bottom: 1rem;
+}
+
+.email-label {
+  margin-right: 10px;
+  font-size:22px;
+}
+
+.password-label {
+  margin-right: 52px;
+  font-size:22px;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,5 +49,24 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/*For phones*/
+@media screen and (max-width: 600px) {
+  .label-input{
+    margin-bottom: 0rem;
+
+  }
+  .email-label {
+    margin-right: 10px;
+    font-size:18px;
+    margin-left:-55px;
+  }
+  
+  .password-label {
+    margin-right: 52px;
+    font-size:18px;
+    margin-left:-55px;
   }
 }
