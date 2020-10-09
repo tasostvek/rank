@@ -1,32 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Routes/Home';
+import Nav from './Routes/Nav';
+import SignUp from './Routes/SignUp';
+import Rank from './Routes/Rank';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Rank</h1>
-        <div className="input-container">
-            <Form inline className="label-input">
-              <Form.Group>
-                <Form.Label className="email-label">Email Address</Form.Label>
-                <Form.Control className="input-field" type="email" placeholder="Enter email"/>
-              </Form.Group>
-            </Form>
-            <Form inline className="label-input">
-              <Form.Group>
-                <Form.Label className="password-label">Password</Form.Label>
-                <Form.Control className="input-field" type="password" placeholder="Enter password"/>
-              </Form.Group>
-            </Form>
-            <Button>Submit</Button>
-          </div>
-      </header>
-    </div>
+const App = () => {
+  return(
+    <Router>
+      <div className='contact-form'>
+        <div id='body'>
+          <Nav/>
+          <Switch>
+            <Route path="/" render={()=> <Home />} exact/>
+            <Route path="/SignUp" render={()=> <SignUp />} />
+            <Route path="/Rank" render={()=> <Rank />} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 

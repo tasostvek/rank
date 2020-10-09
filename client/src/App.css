@@ -1,72 +1,213 @@
-.App {
+* {
+  margin: auto;
+  background-color: rgb(158, 169, 180);
   text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.label-input{
-  margin-bottom: 1rem;
-}
-
-.email-label {
-  margin-right: 10px;
-  font-size:22px;
-}
-
-.password-label {
-  margin-right: 52px;
-  font-size:22px;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
+  opacity: 1; /* Firefox */
 }
 
-.App-link {
-  color: #61dafb;
+#body{
+  width: 650px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  width: 650px;
 }
 
-/*For phones*/
-@media screen and (max-width: 600px) {
-  .label-input{
-    margin-bottom: 0rem;
+.title{
+  text-align:left;
+  color: rgb(250, 219, 119);
+  font-size: 55px;
+}
 
-  }
-  .email-label {
-    margin-right: 10px;
-    font-size:18px;
-    margin-left:-55px;
-  }
+#logo{
+  margin-right: 190px;
+}
+
+#menu li{
+  display: inline;
+  list-style-type: none;
+  padding-right: 10px;
+  padding-left:10px;
+  color: rgb(250, 219, 119);
+}
+
+nav{
+  height: 100px;
+}
+
+a:hover, a:visited, a:link, a:active{
+  text-decoration: none;
+}
+
+.menu-option{
+  font-size: 28px;
+  border-right: 1px solid;
+}
+
+.last{
+  border-right: none;
+}
+
+.menu-ul{
+  margin-block-start: 0px;
+  padding:20px;
+}
+
+
+input{
+  color: white;
+  background-color:inherit;
+  text-align: left;
+  text-indent: 15px;
+}
+
+.contact-form {
+  width: 100%;
+  height: 450px;
+  margin-top:20px;
+}
+
+.image{
+  cursor: pointer;
+  left:0;
+  z-index: 1;
+  position: absolute;
+  left: 30px;
+  top:130px;
+}
+
+.input-field {
+  color: white;
+  border-color: white;
+  height: 42px;
+  width:66%;
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.contact-input-title{
+  background-color:inherit;
+  width: 28%;
+  text-align: left;
+  font-size:18px;
+}
+
+.contact-input{
+  height: 250px;
+  background-color:rgb(62, 91, 114);
+  width:460px;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  color: white;
+  margin: 10px;
+  margin-left:95px;
+  margin-right:95px;
+  padding-left:15px;
+  padding-right:15px;
+  border-radius: 8px;
+  padding-top:15px;
+}
+
+.contact-btn {
+  margin-top:10px;
+  height: 30px;
+  width: 110px;
+  color: black;
+  border: 0;
+  background-color:#f6f6f6;
+  border-radius: 3px;
+  font-size: 17px;
+}
+
+input[type="file"] {
+  background-color:inherit;
+  color: white;
+  font-size:18px;
+  outline: none;
+  cursor: pointer;
+  text-indent: -105px;
+  margin-left:45px;
+  width:400px;
+}
+
+h2,h4{
+  text-align:left;
+}
+
+.userImages{
+  color: white;
+  margin-top:330px;
+  margin-bottom:50px;
+  width: 550px;
+  text-align:left;
+
+}
+
+hr {
+  border-top: 1px solid rgb(250, 219, 119);
+}
+
+.userName{
+  margin-bottom: 15px;
+}
+
+img{
+  margin-left: auto;
+  margin-right: auto;
+  width:  auto;
+  height: 300px;
+}
+
+/*
+.footer{
+  bottom: 30px;
+  left:30px;
+  position:absolute;
+}
+
+.footer-icon{
+  margin-left:10px;
+  margin-right:10px;
+  font-size: 25px;
+  color:#5bace8;
+}
+
+.copyright-footer{
+  vertical-align: top;
+  margin-left:10px;
+  display: inline-block;
+}
+
+a{
+  color: inherit;
+}
+*/
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  /*.contact-form {
+    display: flex;
+    flex-direction: column;
+    /*flex-flow: row wrap;
+    width: 100%;
+  }*/
+
+  .userImages{
+    color:#f6f6f6;
+    margin-top:300px;
+    margin-bottom:50px;
+    padding:15px;
+    width: 400px;
+    text-align:left;
   
-  .password-label {
-    margin-right: 52px;
-    font-size:18px;
-    margin-left:-55px;
   }
 }
+
