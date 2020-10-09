@@ -78,15 +78,17 @@ const Home = () => {
               className="input-field"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label className="contact-input-title image" htmlFor="imageInput">Upload Image</label>
-            <input 
-              name="image" 
-              className="input-field image-upload" 
-              accept="image/*" 
-              id="imageInput" 
-              type="file" 
-              onChange={onChange}
-            />
+            <div className="image-upload-line">
+                <label className="contact-input-title image-label" htmlFor="imageInput">Upload Image</label>
+                <input 
+                name="image" 
+                className="input-field image-upload" 
+                accept="image/*" 
+                id="imageInput" 
+                type="file" 
+                onChange={onChange}
+                />
+            </div>
             
             <br/>
             <button className="contact-btn">Sign Up</button>

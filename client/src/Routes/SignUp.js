@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
 
-function SignUp() {
+
+const SignUp = () => {
     return (
         <div>
 
