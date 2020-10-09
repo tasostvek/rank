@@ -96,8 +96,8 @@ input{
   left:0;
   z-index: 1;
   position: absolute;
-  left: 10px;
-  top:5px;
+  left: 13px;
+  top:6px;
 }
 
 .image-upload-line{
@@ -157,8 +157,9 @@ input[type="file"] {
   font-size:18px;
   outline: none;
   cursor: pointer;
+  margin-top:3px;
   text-indent: -105px;
-  margin-left:50px;
+  margin-left:49px;
   width:400px;
 }
 
@@ -215,7 +216,9 @@ a{
 }
 */
 
-@media only screen and (min-width: 320px) and (max-width: 425px) {
+
+
+@media only screen and (max-width: 670px) {
   /*.contact-form {
     display: flex;
     flex-direction: column;
@@ -223,14 +226,25 @@ a{
     width: 100%;
   }*/
 
+  #logo{
+    margin-left:5px;
+    font-size: 50px;
+  }
+
+  .menu-align{
+    margin-top:30px;
+    padding-right:5px;
+  }
+
+  .menu-option{
+    font-size: 22px;
+  }
+
   .userImages{
     color:#f6f6f6;
-    margin-top:300px;
     margin-bottom:50px;
     padding:15px;
     width: 400px;
     text-align:left;
-  
   }
 }
-
