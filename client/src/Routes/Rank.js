@@ -4,8 +4,6 @@ import '../App.css';
 
 const Rank = () => {
     const [users, setUsers] = useState([]);
-    const array = [ 5, 3, 10, 1, 26, 4];
-    // 5 
 
     useEffect(() => {
         async function getUsers() {
@@ -26,19 +24,23 @@ const Rank = () => {
         for(let i = 0; i<arrayLength; i++ ){
 
         }
-    }*/
-    
-    console.log(array);
-    //insertionSort(array)
+    }
+    */
+
+    //console.log(array);
+    //console.log(insertionSort(array))
 
     return (
         <div className="row">
             <div className="column" >
-                <h2>Column 1</h2>
+                <h1>Column 1</h1>
                 <p>Some text..</p>
             </div>
+            <div className="column rank-OR" >
+                <h2>OR</h2>
+            </div>
             <div className="column">
-                <h2>Column 2</h2>
+                <h1>Column 2</h1>
                 <p>Some text..</p>
             </div>
         </div>

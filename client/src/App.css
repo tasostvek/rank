@@ -71,6 +71,13 @@ a:hover{
   background-color: inherit;
 }
 
+.rank-OR{
+  margin-top: 80px;
+  margin-left:5px;
+  margin-right:5px;
+  color:white;
+}
+
 .row{
   margin-top: 50px;
   color:white;
@@ -84,6 +91,7 @@ input{
   background-color:inherit;
   text-align: left;
   text-indent: 15px;
+  outline: none;
 }
 
 .contact-form {
@@ -91,17 +99,18 @@ input{
   height: 450px;
 }
 
-.image-label{
+#image-label{
   cursor: pointer;
-  left:0;
   z-index: 1;
   position: absolute;
   left: 13px;
-  top:6px;
+  top:3px;
+  height: 40px;
+  width:140px;
 }
 
 .image-upload-line{
-  width: 360px;
+  width: 450px;
   position: absolute;
   background-color: inherit;
 }
@@ -131,7 +140,7 @@ input{
   width:480px;
   text-align: center;
   color: white;
-  margin: 30px;
+  margin: 50px;
   margin-left:auto;
   margin-right:auto;
   padding-left:15px;
@@ -156,11 +165,12 @@ input[type="file"] {
   color: white;
   font-size:18px;
   outline: none;
+  overflow: hidden;
   cursor: pointer;
   margin-top:3px;
-  text-indent: -105px;
-  margin-left:49px;
-  width:400px;
+  text-indent: -40px;
+  margin-left: 90px;
+  width: 360px;
 }
 
 h2,h4{
@@ -226,6 +236,12 @@ a{
     width: 100%;
   }*/
 
+  .row{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   #logo{
     margin-left:5px;
     font-size: 50px;
@@ -243,8 +259,7 @@ a{
   .userImages{
     color:#f6f6f6;
     margin-bottom:50px;
-    padding:15px;
-    width: 400px;
+    width: 450px;
     text-align:left;
   }
 }

@@ -7,6 +7,34 @@ import Rank from './Routes/Rank';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 const App = () => {
+  const array = [ 5, 3, 10, 1, 26, 4];
+
+
+  //Used to sort ELO rating off each image
+  function insertionSort (arrayList){
+        let arrayLength = arrayList.length;
+        let temp = 0;
+        let j = 0;
+
+        for(let i = 1; i<arrayLength; i++ ){
+          while(arrayList[i-j-1] < arrayList[i-j]){
+            temp = arrayList[i-j-1];
+            arrayList[i-j-1] = arrayList[i-j];
+            arrayList[i-j] = temp;
+            j++;
+          }
+          j=0;
+        }
+
+        return arrayList;
+    }
+
+  console.log("Before sort: " + array);
+
+  insertionSort(array);
+  console.log("After sort: " + array);
+
+
   return(
     <Router>
       <div className='contact-form'>

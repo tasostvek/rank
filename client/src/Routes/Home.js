@@ -79,7 +79,7 @@ const Home = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="image-upload-line">
-                <label className="contact-input-title image-label" htmlFor="imageInput">Upload Image</label>
+                <label className="contact-input-title" id="image-label" htmlFor="imageInput">Upload Image</label>
                 <input 
                 name="image" 
                 className="input-field image-upload" 
