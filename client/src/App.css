@@ -73,18 +73,18 @@ a:hover{
 
 .rank-OR{
   margin-top: 80px;
-  margin-left:5px;
-  margin-right:5px;
   color:white;
 }
 
 .row{
-  margin-top: 50px;
+  text-align: center;
+  margin-top: 80px;
   color:white;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 input{
   color: white;
@@ -173,10 +173,6 @@ input[type="file"] {
   width: 360px;
 }
 
-h2,h4{
-  text-align:left;
-}
-
 .userImages{
   color: white;
   margin-top:70px;
@@ -194,7 +190,14 @@ hr {
   margin-bottom: 15px;
 }
 
-img{
+.leaderboard-image{
+  margin-left: auto;
+  margin-right: auto;
+  width:  auto;
+  height: 300px;
+}
+
+.rank-images{
   margin-left: auto;
   margin-right: auto;
   width:  auto;
@@ -226,22 +229,103 @@ a{
 }
 */
 
-
-
-@media only screen and (max-width: 670px) {
-  /*.contact-form {
-    display: flex;
-    flex-direction: column;
-    /*flex-flow: row wrap;
-    width: 100%;
-  }*/
-
-  .row{
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+@media only screen and (min-width: 310px) and (max-width: 520px) {
+  #logo{
+    margin-left:0px;
+    font-size: 50px;
   }
 
+  #menu li{
+    display:block;
+    padding: 0px;
+  }
+
+  .nav-bar{
+    padding-top: 10px;
+    height: 120px;
+  }
+
+  .menu-align{
+    margin-top:-14px;
+    padding-right:0px;
+  }
+
+  .menu-option{
+    font-size: 20px;
+    border-right: none;
+  }
+
+  .contact-input{
+    height: 260px;
+    width:320px;
+    margin: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:10px;
+    padding-right:5px;
+    border-radius: 8px;
+  }
+
+  #image-label{
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    left: 15px;
+    top:0px;
+    height: 40px;
+    width:90px;
+  }
+
+  .image-upload-line{
+    width: 310px;
+  }
+
+  input[type="file"] {
+    overflow: hidden;
+    cursor: pointer;
+    margin-top:3px;
+    text-indent: -20px;
+    margin-left: 10px;
+    width: 280px;
+  }
+
+  .userImages{
+    color:#f6f6f6;
+    margin-bottom:50px;
+    width: 450px;
+    text-align:left;
+  }
+
+  .row{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .rank-OR{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .rank-images{
+    height: 220px;
+  }
+  .leaderboard-image{
+    margin-left: auto;
+    margin-right: auto;
+    width:  auto;
+    height: 240px;
+  }
+  .userImages{
+    color: white;
+    margin-top:70px;
+    margin-bottom:50px;
+    width: 350px;
+    text-align:left;
+  
+  }
+}
+
+@media only screen and (min-width: 521px) and (max-width: 768px) {
   #logo{
     margin-left:5px;
     font-size: 50px;
@@ -262,4 +346,37 @@ a{
     width: 450px;
     text-align:left;
   }
+
+  .row{
+    display: block;
+    margin-top: 50px;
+  }
+
+  .rank-OR{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .rank-images{
+    height: 260px;
+  }
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 970px) {
+
+  .userImages{
+    color:#f6f6f6;
+    margin-bottom:50px;
+    width: 450px;
+    text-align:left;
+  }
+
+  .rank-images{
+    height: 260px;
+  }
+
+  .row{
+    width: 100%;
+  }
+
 }

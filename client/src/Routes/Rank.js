@@ -16,32 +16,39 @@ const Rank = () => {
           }
         }        
         getUsers();
-      }, []);
+    }, []);
 
-    /*function insertionSort (arrayList){
+
+    function randomImage(arrayList){
         let arrayLength = arrayList.length;
-
-        for(let i = 0; i<arrayLength; i++ ){
-
-        }
-    }
-    */
-
-    //console.log(array);
-    //console.log(insertionSort(array))
+        console.log(arrayLength)
+        return arrayLength;
+    }  
 
     return (
         <div className="row">
             <div className="column" >
-                <h1>Column 1</h1>
-                <p>Some text..</p>
+              {users.slice(1,2).map((user) => {                 
+              return(
+                <div key={user._id} className="rank-choice">                  
+                  <h4>{user.name} {user.rating}</h4>
+                  <img className = "rank-images" src= {`/uploads/${user.image}`} alt=""/>
+                </div>
+              )     
+            })}
             </div>
             <div className="column rank-OR" >
                 <h2>OR</h2>
             </div>
             <div className="column">
-                <h1>Column 2</h1>
-                <p>Some text..</p>
+            {users.slice(2,3).map((user) => {                 
+              return(
+                <div key={user._id} className="rank-choice">                  
+                  <h4>{user.name} {user.rating}</h4>
+                  <img className = "rank-images" src= {`/uploads/${user.image}`} alt=""/>
+                </div>
+              )     
+            })}
             </div>
         </div>
     );

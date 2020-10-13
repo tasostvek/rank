@@ -87,7 +87,7 @@ const Home = () => {
 
     return userList;
   }
-  
+
   insertionSort(ratingArray,users)
   console.log(ratingArray)
   console.log(users)
@@ -131,13 +131,13 @@ const Home = () => {
             <button className="contact-btn">Sign Up</button>
         </form>
         <div className="userImages">
-          <h2 className="title">Rank</h2>
+          <h2 className="title">Car Rank</h2>
           {users.map((user) => {                 
             return(
-              <div key={user._id}> 
+              <div key={user._id} className = "userName"> 
                 <hr/>                   
                 <h4 className = "userName">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
-                <img src= {`/uploads/${user.image}`} alt=""/>
+                <img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>
               </div>
             )     
           })}
