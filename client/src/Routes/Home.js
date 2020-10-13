@@ -8,6 +8,7 @@ const Home = () => {
   const [email, setEmail] = useState("");
   const [users, setUsers] = useState([]);
 
+
   useEffect(() => {
     async function getUsers() {
       try {
@@ -17,10 +18,11 @@ const Home = () => {
       } catch(error) {
         console.log('error', error);
       }
-    }        
+    }      
     getUsers();
   }, []);
-  
+
+
   const onChange = e => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
@@ -52,9 +54,44 @@ const Home = () => {
       }
     }
   }
- 
 
-  /*<Route path="/" render={()=> <Home />} exact/>*/
+  const ratingArray = users.map(function(obj) {
+    const container = {};
+
+    container.name = obj.name;
+    container.rating = obj.rating;
+
+    return obj.rating;
+  })
+
+  function insertionSort (ratingList,userList){
+    let arrayLength = ratingList.length;
+    let tempRating = 0;
+    let tempUser = 0
+    let j = 0;
+
+    for(let i = 1; i<arrayLength; i++){
+      while(ratingList[i-j-1] < ratingList[i-j]){
+        tempRating = ratingList[i-j-1];
+        tempUser = userList[i-j-1];
+
+        ratingList[i-j-1] = ratingList[i-j];
+        userList[i-j-1] = userList[i-j];
+
+        ratingList[i-j] = tempRating;
+        userList[i-j] = tempUser;
+        j++;
+      }
+      j=0;
+    }
+
+    return userList;
+  }
+  
+  insertionSort(ratingArray,users)
+  console.log(ratingArray)
+  console.log(users)
+
   return(
     <div>
         <br/>

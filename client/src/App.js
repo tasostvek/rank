@@ -16,7 +16,7 @@ const App = () => {
         let temp = 0;
         let j = 0;
 
-        for(let i = 1; i<arrayLength; i++ ){
+        for(let i = 1; i<arrayLength; i++){
           while(arrayList[i-j-1] < arrayList[i-j]){
             temp = arrayList[i-j-1];
             arrayList[i-j-1] = arrayList[i-j];
@@ -29,10 +29,10 @@ const App = () => {
         return arrayList;
     }
 
-  console.log("Before sort: " + array);
+  
 
   insertionSort(array);
-  console.log("After sort: " + array);
+  console.log(array);
 
 
   return(
