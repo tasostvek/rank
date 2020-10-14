@@ -4,6 +4,9 @@ import '../App.css';
 
 const Rank = () => {
     const [users, setUsers] = useState([]);
+    const arrayLength = users.length;
+    var random1 = 0;
+    var random2 = 0;
 
     useEffect(() => {
         async function getUsers() {
@@ -18,17 +21,54 @@ const Rank = () => {
         getUsers();
     }, []);
 
+    function randomImage(arrayLength){
+      let randomIndex = Math.floor(Math.random() * arrayLength);
+      return randomIndex;
+    }
 
-    function randomImage(arrayList){
-        let arrayLength = arrayList.length;
-        console.log(arrayLength)
-        return arrayLength;
-    }  
+    function randomComparison(num1, num2){
+      let rand1 = num1;
+      let rand2 = num2;
+      if(rand1 === rand2 && (rand1 || rand2)<(arrayLength-1) && (rand1 || rand2) >0){
+        //console.log(`Between)Before comparison:  ${rand1}  ${rand2}`);
+        rand2 = rand2-1;
+        //console.log(`Between)Before comparison:  ${rand1}  ${rand2}`);
+      }
+      else if(rand1 === rand2 && (rand1 && rand2)===0){
+        //console.log(`0)Before comparison:  ${rand1}  ${rand2}`);
+        rand2 = rand2 + 1 +(Math.floor(Math.random() * (arrayLength-1)));
+        //console.log(`0)After comparison:  ${rand1}  ${rand2}`);
+      }
+      else if(rand1 === rand2 && (rand1 && rand2)===(arrayLength-1)){
+        //console.log(`Max)Before comparison:  ${rand1}  ${rand2}`);
+        rand2 = rand2 - 1 -(Math.floor(Math.random() * (arrayLength-1)));
+        //console.log(`Max)After comparison:  ${rand1}  ${rand2}`);
+      }
+      return rand2;
+    }
+
+    random1= randomImage(arrayLength);
+    random2= randomImage(arrayLength);
+
+    if(random1 === random2 ){
+      random2 = randomComparison(random1, random2);
+    }
+
+    /*useEffect(() => {
+      if(random1 !== random2){
+        console.log(`${random1} ${random2}`);
+        console.log("WORKS!");
+      }
+      else if(random1 === random2){
+        console.log("ERROR!");
+      }
+      console.log("--------------");
+    });*/
 
     return (
         <div className="row">
             <div className="column" >
-              {users.slice(1,2).map((user) => {                 
+              {users.slice(random1,random1+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
@@ -41,7 +81,7 @@ const Rank = () => {
                 <h2>OR</h2>
             </div>
             <div className="column">
-            {users.slice(2,3).map((user) => {                 
+            {users.slice(random2, random2+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>

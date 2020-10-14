@@ -89,8 +89,9 @@ const Home = () => {
   }
 
   insertionSort(ratingArray,users)
-  console.log(ratingArray)
-  console.log(users)
+  useEffect(() => {
+    console.log(ratingArray)
+  });
 
   return(
     <div>
