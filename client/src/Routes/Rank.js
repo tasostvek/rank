@@ -54,6 +54,10 @@ const Rank = () => {
       random2 = randomComparison(random1, random2);
     }
 
+    const imageClick = () => {
+      window.location.reload();
+    } 
+
     /*useEffect(() => {
       if(random1 !== random2){
         console.log(`${random1} ${random2}`);
@@ -72,7 +76,12 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
-                  <img className = "rank-images" src= {`/uploads/${user.image}`} alt=""/>
+                  <img 
+                    onClick={() => imageClick()}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />
                 </div>
               )     
             })}
@@ -85,7 +94,12 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
-                  <img className = "rank-images" src= {`/uploads/${user.image}`} alt=""/>
+                  <img 
+                    onClick={() => imageClick()}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />
                 </div>
               )     
             })}
