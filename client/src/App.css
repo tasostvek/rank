@@ -38,6 +38,8 @@
   padding-top: 20px;
   background-color:rgb(25, 37, 48);
   height: 140px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
 }
 
 a:visited, a:link, a:active{
@@ -90,7 +92,7 @@ input{
   color: white;
   background-color:inherit;
   text-align: left;
-  text-indent: 15px;
+  text-indent: 5px;
   outline: none;
 }
 
@@ -105,8 +107,8 @@ input{
   position: absolute;
   left: 13px;
   top:3px;
-  height: 40px;
-  width:140px;
+  height: 50px;
+  width:130px;
 }
 
 .image-upload-line{
@@ -117,7 +119,7 @@ input{
 
 .input-field {
   color: white;
-  border-color: white;
+  border-color: rgb(250, 219, 119);
   height: 42px;
   width:66%;
   border-top-style: hidden;
@@ -136,7 +138,7 @@ input{
 
 .contact-input{
   height: 250px;
-  background-color:rgb(64, 98, 126);
+  background-color:rgb(53, 118, 172);
   width:480px;
   text-align: center;
   color: white;
@@ -150,12 +152,12 @@ input{
 }
 
 .contact-btn {
-  margin-top:60px;
+  margin-top:65px;
   height: 30px;
   width: 110px;
   color: black;
   border: 0;
-  background-color:#cfcdcd;
+  background-color:#ffffff;
   border-radius: 3px;
   font-size: 17px;
 }
@@ -168,9 +170,11 @@ input[type="file"] {
   overflow: hidden;
   cursor: pointer;
   margin-top:3px;
-  text-indent: -40px;
+  text-indent: -60px;
   margin-left: 90px;
-  width: 360px;
+  width: 340px;
+  border-bottom: 2px solid;
+  border-color: rgb(250, 219, 119);
 }
 
 .userImages{
@@ -239,8 +243,8 @@ a{
   }
 
   .contact-btn {
-    margin-top: 65px;
-}
+    margin-top:85px;
+  }
 
   input{
     text-indent: 10px;
@@ -272,7 +276,7 @@ a{
   }
 
   .contact-input{
-    height: 260px;
+    height: 280px;
     width:310px;
     margin: 10px;
     margin-top: 25px;
@@ -288,10 +292,10 @@ a{
     cursor: pointer;
     z-index: 1;
     position: absolute;
-    left: 9px;
+    left: 15px;
     top:3px;
-    height: 40px;
-    width:110px;
+    height: 50px;
+    width:100px;
   }
 
   .input-field {
@@ -306,9 +310,9 @@ a{
     overflow: hidden;
     cursor: pointer;
     margin-top:3px;
-    text-indent: -10px;
+    text-indent: -6px;
     margin-left: 10px;
-    width: 260px;
+    width: 270px;
   }
 
   .userImages{
@@ -348,6 +352,10 @@ a{
     margin-top: 5px;
   }
 
+  .contact-btn {
+    margin-top: 75px;
+  }
+
   #logo{
     margin-left:0px;
     font-size: 50px;
@@ -374,7 +382,7 @@ a{
   }
 
   .contact-input{
-    height: 260px;
+    height: 280px;
     width:340px;
     margin: 10px;
     margin-left:auto;
@@ -391,8 +399,8 @@ a{
     position: absolute;
     left: 9px;
     top:3px;
-    height: 40px;
-    width:100px;
+    height: 50px;
+    width:99px;
   }
 
   .input-field {
@@ -408,9 +416,9 @@ a{
     overflow: hidden;
     cursor: pointer;
     margin-top:3px;
-    text-indent: -15px;
+    text-indent: -5px;
     margin-left: 10px;
-    width: 280px;
+    width: 300px;
   }
 
   .row{
