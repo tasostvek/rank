@@ -63,7 +63,7 @@ const Home = () => {
             return(
               <div key={user._id} className = "userName"> 
                 <hr/>                   
-                <h4 className = "userName">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
+                <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
                 <img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>
               </div>
             )     

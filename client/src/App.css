@@ -35,7 +35,6 @@
 }
 
 .nav-bar{
-  padding-top: 20px;
   background-color:rgb(25, 37, 48);
   height: 140px;
   border-bottom-left-radius: 22px;
@@ -138,7 +137,7 @@ input{
 
 .contact-input{
   height: 250px;
-  background-color:rgb(53, 118, 172);
+  background-color:rgb(58, 106, 145);
   width:480px;
   text-align: center;
   color: white;
@@ -183,7 +182,6 @@ input[type="file"] {
   margin-bottom:50px;
   width: 550px;
   text-align:left;
-
 }
 
 hr {
@@ -192,6 +190,12 @@ hr {
 
 .userName{
   margin-bottom: 15px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.userName-title{
+  text-align: left;
 }
 
 .leaderboard-image{
