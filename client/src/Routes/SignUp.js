@@ -21,22 +21,22 @@ const SignUp = () => {
         formData.append('email', email);
         
         try{
-        await axios.post('http://localhost:3030/api/upload',formData,{
-            headers: {
-            'Content-Type': 'multipart/form-data'
-            }
-        });
+            await axios.post('http://localhost:3030/api/upload',formData,{
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            });
 
-        console.log("Image uploaded!")
-        window.location.reload();
+            console.log("Image uploaded!")
+            window.location.reload();
         }
         catch(err){
-        if(err.response.status === 500){
-            console.log('There was a problem with the server');
-        }
-        else{
-            console.log(err.response.data.msg);
-        }
+            if(err.response.status === 500){
+                console.log('There was a problem with the server');
+            }
+            else{
+                console.log(err.response.data.msg);
+            }
         }
     }
 
@@ -64,7 +64,7 @@ const SignUp = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 />
                 <div className="image-upload-line">
-                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Upload Car</label>
+                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Your Car</label>
                     <input 
                     name="image" 
                     className="input-field image-upload" 

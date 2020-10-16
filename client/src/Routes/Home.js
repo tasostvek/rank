@@ -18,7 +18,7 @@ const Home = () => {
     getUsers();
   }, []);
 
-    const ratingArray = users.map(function(obj) {
+  const ratingArray = users.map(function(obj) {
     const container = {};
 
     container.name = obj.name;

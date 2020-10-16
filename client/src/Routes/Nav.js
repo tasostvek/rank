@@ -10,7 +10,7 @@ const Nav = () =>  {
                 <Link to="/"><li href="#" className="title" id="logo">RideRank</li></Link>
                 <div className = "menu-align">
                     <Link to="/"><li href="#" className ="menu-option">Home</li></Link>
-                    <Link to="/Rank"><li href="#"className ="menu-option">Rate</li></Link>
+                    <Link to="/Rate"><li href="#"className ="menu-option">Rate</li></Link>
                     <Link to="/SignUp"><li href="#" className ="menu-option last">Sign Up</li></Link>
                 </div>
             </ul>

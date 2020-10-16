@@ -3,7 +3,7 @@ import './App.css';
 import Home from './Routes/Home';
 import Nav from './Routes/Nav';
 import SignUp from './Routes/SignUp';
-import Rank from './Routes/Rank';
+import Rate from './Routes/Rate';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
           <Switch>
             <Route path="/" render={()=> <Home />} exact/>
             <Route path="/SignUp" render={()=> <SignUp />} />
-            <Route path="/Rank" render={()=> <Rank />} />
+            <Route path="/Rate" render={()=> <Rate />} />
           </Switch>
         </div>
       </div>
