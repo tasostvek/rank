@@ -18,7 +18,8 @@ app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
     useNewUrlParser:true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
@@ -28,6 +29,44 @@ app.use(express.urlencoded({ extended: false}));
 
 app.use(morgan('tiny'));
 
+app.post('/api/update1', (req,res) => {
+
+    console.log("Updated rating1 has been recieved!");
+
+    UserAccount.findByIdAndUpdate(
+        {_id:req.body._id}, 
+        {$set:{rating:req.body.rating}}, 
+        (err) => {
+            if(err) {
+                res.status(500).json({msg: 'Internal server errors with updating2'});
+            }
+            else{
+                res.json({
+                    msg:'Updated2!'
+                });
+            }
+    })
+});
+
+app.post('/api/update2', (req,res) => {
+
+    console.log("Updated rating2 has been recieved!");
+
+
+    UserAccount.findByIdAndUpdate(
+        {_id:req.body._id}, 
+        {$set:{rating:req.body.rating}}, 
+        (err) => {
+            if(err) {
+                res.status(500).json({msg: 'Internal server errors with updating2'});
+            }
+            else{
+                res.json({
+                    msg:'Updated2!'
+                });
+            }
+    })
+});
 
 app.post('/api/upload', (req,res) => {
     if(req,res ===null) {
