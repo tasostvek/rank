@@ -14,8 +14,6 @@ const app = express();
 
 app.use(fileUpload());
 
-app.use(cors());
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
     useNewUrlParser:true,
     useUnifiedTopology: true,
@@ -24,9 +22,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
+app.use(express.static('./client/build')); 
+
+app.use(cors());
 app.use(morgan('tiny'));
 
 app.post('/api/update1', (req,res) => {
@@ -51,7 +53,6 @@ app.post('/api/update1', (req,res) => {
 app.post('/api/update2', (req,res) => {
 
     console.log("Updated rating2 has been recieved!");
-
 
     UserAccount.findByIdAndUpdate(
         {_id:req.body._id}, 
