@@ -22,6 +22,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
+mongoose.connection.on('connected', () => {
+    console.log("Connected to Mongoose!");
+});
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
