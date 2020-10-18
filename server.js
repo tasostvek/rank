@@ -115,5 +115,15 @@ app.get('/api/users', (req,res)=>{
         });
 });
 
+app.get('/Rate/api/users', (req,res)=>{
+    UserAccount.find({})
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) =>{
+            console.log('error: ',error);
+        });
+});
+
 
 app.listen(PORT, ()=> console.log(`Server started at PORT ${PORT}`));

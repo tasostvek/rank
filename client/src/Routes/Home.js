@@ -64,13 +64,14 @@ const Home = () => {
               <div key={user._id} className = "userName"> 
                 <hr/>                   
                 <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
-                <img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>
+          
               </div>
             )     
           })}
         </div>
     </div>
   );
+  /*<img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>*/
 }
 
 export default Home;

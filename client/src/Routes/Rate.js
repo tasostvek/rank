@@ -13,7 +13,7 @@ const Rank = () => {
     useEffect(() => {
         async function getUsers() {
           try {
-            const response = await axios.get("/api/users");
+            const response = await axios.get("/Rate/api/users");
             setUsers(response.data);
             console.log("Got users from database!");
           } catch(error) {
@@ -151,12 +151,6 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
-                  <img 
-                    onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
-                    className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
-                  />
                 </div>
               )     
             })}
@@ -169,18 +163,27 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
-                  <img 
-                    onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
-                    className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
-                  />
                 </div>
               )     
             })}
             </div>
         </div>
     );
+                  /*
+                  <img 
+                    onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />
+                  <img 
+                    onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />*/
+    
 }
+
 
 export default Rank;
