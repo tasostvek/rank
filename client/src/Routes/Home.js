@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     async function getUsers() {
       try {
-        const response = await axios.get("http://localhost:3030/api/users");
+        const response = await axios.get("/api/users");
         setUsers(response.data);
         console.log("Got users from database!");
       } catch(error) {

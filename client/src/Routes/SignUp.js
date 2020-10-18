@@ -21,14 +21,15 @@ const SignUp = () => {
         formData.append('email', email);
         
         try{
-            await axios.post('http://localhost:3030/api/upload',formData,{
+            await axios.post('/SignUp/api/upload',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
             });
 
             console.log("Image uploaded!")
-            window.location.reload();
+            document.getElementById("imageInput").value = "";
+            //window.location.reload();
         }
         catch(err){
             if(err.response.status === 500){

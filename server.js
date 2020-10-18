@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3032;
 const UserAccount = require("./models/userAccounts");
 const { v4: uuidv4 } = require('uuid');
 
@@ -22,9 +22,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
-mongoose.connection.on('connected', () => {
+/*mongoose.connection.on('connected', () => {
     console.log("Connected to Mongoose!");
-});
+});*/
 
 
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use(express.static('./client/build'));
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.post('/api/update1', (req,res) => {
+app.post('/Rate/api/update1', (req,res) => {
 
     console.log("Updated rating1 has been recieved!");
 
@@ -54,7 +54,7 @@ app.post('/api/update1', (req,res) => {
     })
 });
 
-app.post('/api/update2', (req,res) => {
+app.post('/Rate/api/update2', (req,res) => {
 
     console.log("Updated rating2 has been recieved!");
 
@@ -73,7 +73,7 @@ app.post('/api/update2', (req,res) => {
     })
 });
 
-app.post('/api/upload', (req,res) => {
+app.post('/SignUp/api/upload', (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }

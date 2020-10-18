@@ -13,7 +13,7 @@ const Rank = () => {
     useEffect(() => {
         async function getUsers() {
           try {
-            const response = await axios.get("http://localhost:3030/api/users");
+            const response = await axios.get("/api/users");
             setUsers(response.data);
             console.log("Got users from database!");
           } catch(error) {
@@ -43,12 +43,15 @@ const Rank = () => {
       return rand2;
     }
 
+    
     random1= randomImage(arrayLength);
     random2= randomImage(arrayLength);
+
 
     if(random1 === random2 ){
       random2 = randomComparison(random1, random2);
     }
+
 
     const ratingArray = users.map(function(obj) {
       const container = {};
@@ -57,6 +60,7 @@ const Rank = () => {
   
       return obj.rating;
     })
+
 
     const idArray = users.map(function(obj) {
       const container = {};
@@ -87,9 +91,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('http://localhost:3030/api/update1',ratingDataImage1);
-          axios.post('http://localhost:3030/api/update2',ratingDataImage2);
-          window.location.reload();
+          axios.post('/Rate/api/update1',ratingDataImage1);
+          axios.post('/Rate/api/update2',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
@@ -113,9 +116,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('http://localhost:3030/api/update1',ratingDataImage1);
-          axios.post('http://localhost:3030/api/update2',ratingDataImage2);
-          window.location.reload();
+          axios.post('/Rate/api/update1',ratingDataImage1);
+          axios.post('/Rate/api/update2',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
