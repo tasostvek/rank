@@ -6,9 +6,9 @@ const Home = () => {
 
 
   useEffect(() => {
-    function getUsers() {
+    async function getUsers() {
       try {
-        const response = axios.get("/api/users");
+        const response = await axios.get("/api/users");
         setUsers(response.data);
         console.log("Got users from database!");
       } catch(error) {
