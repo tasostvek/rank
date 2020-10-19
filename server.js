@@ -30,15 +30,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
-app.use(express.static('./client/build')); 
-/*app.get("*", (req, res) => {
-    res.sendFile(path.resolve('./client/build', index.html)); // <- try "index.html"
-  });*/
+app.use(express.static('./client/build'));
 
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.post('/Rate/api/update1', (req,res) => {
+app.post('/api/update1', (req,res) => {
 
     console.log("Updated rating1 has been recieved!");
 
@@ -57,7 +54,7 @@ app.post('/Rate/api/update1', (req,res) => {
     })
 });
 
-app.post('/Rate/api/update2', (req,res) => {
+app.post('/api/update2', (req,res) => {
 
     console.log("Updated rating2 has been recieved!");
 
@@ -76,7 +73,7 @@ app.post('/Rate/api/update2', (req,res) => {
     })
 });
 
-app.post('/SignUp/api/upload', (req,res) => {
+app.post('/api/upload', (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }
@@ -109,16 +106,6 @@ app.post('/SignUp/api/upload', (req,res) => {
 });
 
 app.get('/api/users', (req,res)=>{
-    UserAccount.find({})
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((error) =>{
-            console.log('error: ',error);
-        });
-});
-
-app.get('/Rate/api/users', (req,res)=>{
     UserAccount.find({})
         .then((data) => {
             res.json(data);
