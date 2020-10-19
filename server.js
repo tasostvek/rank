@@ -31,9 +31,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 app.use(express.static('./client/build')); 
-/*app.get("*", (req, res) => {
-    res.sendFile(path.resolve('./client/build', index.html)); // <- try "index.html"
-  });*/
+app.get('/*', (req, res) => {
+    let url = path.join(__dirname, '../client/build', 'index.html');
+    if (!url.startsWith('/app/')) // we're on local windows
+      url = url.substring(1);
+    res.sendFile(url);
+  });
 
 app.use(cors());
 app.use(morgan('tiny'));
