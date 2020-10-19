@@ -13,7 +13,7 @@ const Rank = () => {
     useEffect(() => {
         async function getUsers() {
           try {
-            const response = await axios.get("/Rate/api/users");
+            const response = await axios.get("http://localhost:3032/api/users");
             setUsers(response.data);
             console.log("Got users from database!");
           } catch(error) {
@@ -91,8 +91,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('/Rate/api/update1',ratingDataImage1);
-          axios.post('/Rate/api/update2',ratingDataImage2);
+          axios.post('http://localhost:3032/api/update1',ratingDataImage1);
+          axios.post('http://localhost:3032/api/update2',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
@@ -116,8 +116,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('/Rate/api/update1',ratingDataImage1);
-          axios.post('/Rate/api/update2',ratingDataImage2);
+          axios.post('http://localhost:3032/api/update1',ratingDataImage1);
+          axios.post('http://localhost:3032/api/update2',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
@@ -128,6 +128,7 @@ const Rank = () => {
           }
         }
       }
+      window.location.reload();
     } 
     /*
     useEffect(() => {
@@ -151,6 +152,12 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
+                  <img 
+                    onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />
                 </div>
               )     
             })}
@@ -163,6 +170,12 @@ const Rank = () => {
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name} {user.rating}</h4>
+                  <img 
+                    onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
+                    className = "rank-images" 
+                    src= {`/uploads/${user.image}`} 
+                    alt=""
+                  />
                 </div>
               )     
             })}
