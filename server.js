@@ -5,10 +5,11 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
-
 const PORT = process.env.PORT || 3032;
 const UserAccount = require("./models/userAccounts");
 const { v4: uuidv4 } = require('uuid');
+const {cloudinary} = require('./utils/cloudinary');
+const { Server } = require('http');
 
 
 const app = express();
@@ -58,26 +59,50 @@ app.post('/api/update', (req,res) => {
 });
 
 
-app.post('/api/upload', (req,res) => {
+app.post('/api/upload', async (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }
-
     const file = req.files.file;
 
-    //Name of stored image
-    const newFileName = uuidv4() + "-" + file.name;
+    let extension = ''
+    //Check file extension of current image
+    if(file.name.includes('.jpg')){
+        extension = ".jpg"
+    }
+    if(file.name.includes('.jpeg')){
+        extension = ".jpeg"
+    }
+    if(file.name.includes('.png')){
+        extension = ".png"
+    }
 
+    
+    const newFileID = uuidv4()
+    const newFileName = newFileID + extension;
+    try{
+        const fileCloudinary = req.body.base64Image
+        await cloudinary.uploader.upload(fileCloudinary, 
+            { public_id: `${newFileID}` }
+        );
+    }
+    catch(errorr){
+        console.error(error);
+    }
+    /*
+    //Store image in local filesystem
     file.mv(`${__dirname}/client/public/uploads/${newFileName}`, err => {
         if(err) {
             return res.status(500).json({msg: 'Error uploading image'});
         }
         res.json({fileName: newFileName, filePath: `../uploads/${newFileName}`});
     });
-
+    */
     const newAccount = new UserAccount({
         name: req.body.name,
-        email: req.body.email,
+        make: req.body.make,
+        model: req.body.model,
+        year: req.body.year,
         rating: 1400,
         image: newFileName
     });
@@ -86,8 +111,7 @@ app.post('/api/upload', (req,res) => {
         if(error) {
             return res.status(500).json({msg: 'Internal server errors'});
         }
-    })
-        
+    })   
 });
 
 app.get('/api/users', (req,res)=>{
@@ -99,6 +123,5 @@ app.get('/api/users', (req,res)=>{
             console.log('error: ',error);
         });
 });
-
 
 app.listen(PORT, ()=> console.log(`Server started at PORT ${PORT}`));

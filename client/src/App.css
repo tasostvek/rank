@@ -21,6 +21,10 @@
   background-color: inherit;
 }
 
+.alert-margin{
+  margin-bottom: 0px;
+}
+
 #logo{
   float:left;
   margin-left:40px;
@@ -36,7 +40,7 @@
 
 .nav-bar{
   background-color:rgb(58, 106, 145);
-  height: 130px;
+  height: 110px;
   border-bottom-left-radius: 22px;
   border-bottom-right-radius: 22px;
 }
@@ -105,9 +109,11 @@ input{
   z-index: 1;
   position: absolute;
   left: 13px;
-  top:3px;
+  top:2px;
   height: 50px;
   width:130px;
+  display: flex;
+  align-items: center;
 }
 
 .image-upload-line{
@@ -124,7 +130,7 @@ input{
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 
@@ -136,7 +142,7 @@ input{
 }
 
 .contact-input{
-  height: 250px;
+  height: 510px;
   background-color:rgb(25, 37, 48);
   width:480px;
   text-align: center;
@@ -144,16 +150,27 @@ input{
   margin: 50px;
   margin-left:auto;
   margin-right:auto;
+  margin-top: 10px;
   padding-left:15px;
   padding-right:15px;
   border-radius: 8px;
-  padding-top:15px;
+  padding-top:5px;
+}
+
+.image-preview{
+  color:white;
+  margin-top:65px;
+  margin-left: 140px;
+  width: 260px;
+  height: auto;
 }
 
 .contact-btn {
-  margin-top:65px;
+  position: absolute;
+  margin-top:85px;
+  margin-left:-5px;
   height: 30px;
-  width: 110px;
+  width: 80px;
   color: black;
   border: 0;
   background-color:#ffffff;
@@ -168,7 +185,7 @@ input[type="file"] {
   outline: none;
   overflow: hidden;
   cursor: pointer;
-  margin-top:3px;
+  margin-top:7px;
   text-indent: -60px;
   margin-left: 90px;
   width: 340px;
@@ -202,14 +219,14 @@ hr {
   margin-left: auto;
   margin-right: auto;
   width:  450px;
-  height: 310px;
+  height: 330px;
 }
 
 .rank-images{
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
-  width:  360px;
+  width:  385px;
   height: 290px;
 }
 
@@ -243,11 +260,10 @@ a{
     width: 295px;
     margin-top: 10px;
     height: 50px;
-
   }
 
   .contact-btn {
-    margin-top:85px;
+    margin-top:75px;
   }
 
   input{
@@ -256,7 +272,8 @@ a{
 
   #logo{
     margin-left:0px;
-    font-size: 45px;
+    font-size: 38px;
+    margin-top: -5px;
   }
 
   #menu li{
@@ -266,7 +283,7 @@ a{
 
   .nav-bar{
     padding-top: 0px;
-    height: 100px;
+    height: 92px;
   }
 
   .menu-align{
@@ -275,18 +292,18 @@ a{
   }
 
   .menu-option{
-    font-size: 20px;
+    font-size: 19px;
     border-right: none;
+    height:25px;
   }
 
   .contact-input{
-    height: 280px;
+    height: 470px;
     width:310px;
     margin: 10px;
-    margin-top: 25px;
     margin-left:auto;
     margin-right:auto;
-    padding-top:2px;
+    padding-top:5px;
     padding-left:5px;
     padding-right:5px;
     border-radius: 8px;
@@ -297,13 +314,18 @@ a{
     z-index: 1;
     position: absolute;
     left: 15px;
-    top:3px;
+    top:0px;
     height: 50px;
-    width:100px;
+    width:101px;
+  }
+
+  br{
+    content: "";
   }
 
   .input-field {
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 18px;
     width:180px;
     margin-left:10px;
@@ -330,8 +352,12 @@ a{
 
   .row{
     display: block;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  h4{
+    font-size: 18px;
   }
 
   h2{
@@ -343,8 +369,8 @@ a{
     margin-bottom: 5px;
   }
   .rank-images{
-    width: 230px;
-    height: 170px;
+    width: 225px;
+    height: 165px;
   }
   .leaderboard-image{
     margin-left: auto;
@@ -352,10 +378,28 @@ a{
     width:  290px;
     height: 210px;
   }
+  .image-preview{
+    margin-top:65px;
+    margin-left:100px;
+    width: 200px;
+    height: auto;
+  }
+  .contact-btn {
+    position: absolute;
+    margin-top:135px;
+    margin-left: -280px;
+    height: 30px;
+    width: 80px;
+    color: black;
+    border: 0;
+    background-color:#ffffff;
+    border-radius: 3px;
+    font-size: 17px;
+  }
 }
 
 
-@media only screen and (min-width: 361px) and (max-width: 520px) {
+@media only screen and (min-width: 361px) and (max-width: 535px) {
   .image-upload-line{
     width: 280px;
     margin-top: 5px;
@@ -377,7 +421,7 @@ a{
 
   .nav-bar{
     padding-top: 0px;
-    height: 120px;
+    height: 110px;
   }
 
   .menu-align{
@@ -391,8 +435,8 @@ a{
   }
 
   .contact-input{
-    height: 280px;
-    width:340px;
+    height: 525px;
+    width:360px;
     margin: 10px;
     margin-left:auto;
     margin-right:auto;
@@ -407,13 +451,14 @@ a{
     z-index: 1;
     position: absolute;
     left: 9px;
-    top:3px;
+    top:0px;
     height: 50px;
-    width:99px;
+    width:100px;
   }
 
   .input-field {
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
   }
 
@@ -424,10 +469,10 @@ a{
   input[type="file"] {
     overflow: hidden;
     cursor: pointer;
-    margin-top:3px;
+    margin-top:5px;
     text-indent: -5px;
     margin-left: 10px;
-    width: 300px;
+    width: 305px;
   }
 
   .row{
@@ -456,14 +501,22 @@ a{
     margin-bottom:50px;
     width: 350px;
     text-align:left;
-  
   }
+  h4{
+    font-size: 22px;
+  }
+  .image-preview{
+    margin-left: 100px;
+    width: 220px;
+    height: auto;
+  }
+
 }
 
-@media only screen and (min-width: 521px) and (max-width: 768px) {
+@media only screen and (min-width: 536px) and (max-width: 768px) {
   #logo{
     margin-left:5px;
-    font-size: 50px;
+    font-size: 55px;
   }
 
   .menu-align{
@@ -472,7 +525,7 @@ a{
   }
 
   .menu-option{
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .userImages{
@@ -497,8 +550,27 @@ a{
   }
   .rank-images{
     width: 345px;
-    height: 280px;
+    height: 260px;
   }
+  .image-preview{
+  margin-top:65px;
+  margin-left: 140px;
+  width: 260px;
+  height: auto;
+}
+
+.contact-btn {
+  position: absolute;
+  margin-top:85px;
+  margin-left:-5px;
+  height: 30px;
+  width: 80px;
+  color: black;
+  border: 0;
+  background-color:#ffffff;
+  border-radius: 3px;
+  font-size: 17px;
+}
 }
 
 
@@ -512,8 +584,8 @@ a{
   }
 
   .rank-images{
-    width: 345px;
-    height: 280px;
+    width: 360px;
+    height: 270px;
   }
 
   .row{

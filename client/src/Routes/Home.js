@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {Image } from 'cloudinary-react';
 import axios from 'axios';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const imageLocation = '/uploads/'
-
 
   useEffect(() => {
-    async function getUsers() {
+    const getUsers = async () => {
       try {
         const response = await axios.get('/api/users');
         setUsers(response.data);
@@ -15,7 +14,7 @@ const Home = () => {
       } catch(error) {
         console.log('error', error);
       }
-    }      
+    } 
     getUsers();
   }, []);
 
@@ -64,15 +63,14 @@ const Home = () => {
             return(
               <div key={user._id} className = "userName"> 
                 <hr/>                   
-                <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
-                <img className = "leaderboard-image" src= {`${imageLocation}${user.image}`} alt=""/>
+                <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name}:  {user.year} {user.make} {user.model}</h4>
+                <Image className = "leaderboard-image" cloudName = "tvek" publicId = {user.image}/>
               </div>
             )     
           })}
         </div>
     </div>
   );
-  /*<img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>*/
 }
 
 export default Home;

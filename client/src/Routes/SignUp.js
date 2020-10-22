@@ -1,25 +1,25 @@
 import React, {useState} from 'react';
+import Message from './Message';
 import axios from 'axios';
 
 
 const SignUp = () => {
     const [file, setFile] = useState('');
-    const [fileName, setFileName] = useState('');
+    const [message, setMessage] = useState('');
     const [imageSource, setImageSource] = useState ();
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [make, setMake] = useState("");
+    const [model, setModel] = useState("");
+    const [year, setYear] = useState("");
 
     const onChange = e => {
-
         try{
             const fileSource = e.target.files[0];
             setFile(fileSource);
-            setFileName(fileSource.name);
             fileImage(fileSource);
         }
         catch (error) {
             setFile(null);
-            setFileName(null);
             setImageSource(null);
         };
     }
@@ -29,45 +29,69 @@ const SignUp = () => {
         reader.readAsDataURL(fileInput);
         reader.onloadend = () => {
             setImageSource(reader.result);
-            console.log("Image set")
         }
     }
 
-    const uploadImage = (base64EncodedImage) => {
-       console.log(base64EncodedImage) 
+    const resetInputs = () => {
+        setFile(null);
+        setImageSource(null);
+        setName('')
+        setModel('')
+        setMake('')
+        setYear('')
+        document.getElementById("imageInput").value = "";
     }
 
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
 
         if(!imageSource) {
-            alert("Need to submit image")
+            setMessage("Need an image")
             return;
         }
-        uploadImage(imageSource);
-        console.log("fileInput: " + file);
-        console.log("fileName: " + fileName);
+        if(!name) {
+            setMessage("Need a username")
+            return;
+        }
+        if(!model) {
+            setMessage("Need car model")
+            return;
+        }
+        if(!make) {
+            setMessage("Need car make")
+            return;
+        }
+        if(!year) {
+            setMessage("Need car year")
+            return;
+        }
+
+        let base64Image = JSON.stringify(imageSource);
 
         const formData = new FormData();
 
+        formData.append('base64Image', imageSource);
         formData.append('file', file);
         formData.append('name', name);
-        formData.append('email', email);
+        formData.append('make', make);
+        formData.append('model', model);
+        formData.append('year', year);
         
         try{
-            axios.post('/api/upload',formData,{
+            console.log("Waiting for upload....")
+            axios.post('http://localhost:3032/api/upload',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
             });
 
-            console.log("Image uploaded!")
-            //document.getElementById("imageInput").value = "";
-            //window.location.reload();
+            setMessage("Your car is signed up!")
+            resetInputs();
+            //window.reload();
         }
         catch(err){
-            if(err.response.status === 500){
-                console.log('There was a problem with the server');
+            if(err){
+                setMessage('There was a problem with the server');
             }
             else{
                 console.log(err.response.data.msg);
@@ -77,9 +101,8 @@ const SignUp = () => {
 
     return (
         <div>
-            <br/>
             <form className="contact-input" onSubmit={onSubmit}>
-
+                {message ? <Message msg={message}/> : null}
                 <label className="contact-input-title username">Username</label>
                 <input 
                 name="name" 
@@ -89,17 +112,35 @@ const SignUp = () => {
                 className="input-field"
                 onChange={(e) => setName(e.target.value)}
                 /> 
-                <label className="contact-input-title email">Email</label>
+                <label className="contact-input-title email">Make</label>
                 <input 
-                name="email" 
-                value={email}
+                name="make" 
+                value={make}
                 type="text" 
-                placeholder="Enter email address" 
+                placeholder="Enter your car maker" 
                 className="input-field"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setMake(e.target.value)}
+                />
+                <label className="contact-input-title email">Model</label>
+                <input 
+                name="model" 
+                value={model}
+                type="text" 
+                placeholder="Enter your car model" 
+                className="input-field"
+                onChange={(e) => setModel(e.target.value)}
+                />
+                <label className="contact-input-title email">Year</label>
+                <input 
+                name="year" 
+                value={year}
+                type="text" 
+                placeholder="Enter your car year" 
+                className="input-field"
+                onChange={(e) => setYear(e.target.value)}
                 />
                 <div className="image-upload-line">
-                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Your Car</label>
+                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Car Image</label>
                     <input 
                     name="image" 
                     className="input-field image-upload" 
@@ -109,9 +150,9 @@ const SignUp = () => {
                     onChange={onChange}
                     />
                 </div>
-                
                 <br/>
                 <button className="contact-btn">Sign Up</button>
+                <img src={imageSource} className = "image-preview" alt=""/>
             </form>
         </div>
     );

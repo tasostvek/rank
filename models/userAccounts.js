@@ -5,7 +5,9 @@ const Schema = mongoose.Schema;
 
 const AccountSchema = new Schema({
     name: String,
-    email: String,
+    make: String,
+    model: String,
+    year: String,
     rating: Number,
     date: {
         type:String,

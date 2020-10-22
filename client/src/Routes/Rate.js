@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Image } from 'cloudinary-react';
 import axios from 'axios';
 import '../App.css';
 import EloRating from 'elo-rating';
@@ -151,12 +152,12 @@ const Rank = () => {
               {users.slice(random1,random1+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
-                  <h4>{user.name} {user.rating}</h4>
-                  <img 
+                  <h4>{user.name}:  {user.year} {user.make} {user.model}</h4>
+                  <Image 
                     onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
                     className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
+                    cloudName = "tvek" 
+                    publicId = {user.image}
                   />
                 </div>
               )     
@@ -169,13 +170,14 @@ const Rank = () => {
             {users.slice(random2, random2+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
-                  <h4>{user.name} {user.rating}</h4>
-                  <img 
+                  <h4>{user.name}:  {user.year} {user.make} {user.model}</h4>
+                  <Image 
                     onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
                     className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
+                    cloudName = "tvek" 
+                    publicId = {user.image}
                   />
+                  
                 </div>
               )     
             })}
