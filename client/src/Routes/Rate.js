@@ -71,7 +71,7 @@ const Rank = () => {
     })
   
 
-    const imageClick = (winner, loser, image) => {
+    const imageClick = async (winner, loser, image) => {
       let result = EloRating.calculate(winner, loser);
       const ratingDataImage1 = new FormData();
       const ratingDataImage2 = new FormData();
@@ -91,8 +91,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('http://localhost:3032/api/update1',ratingDataImage1);
-          axios.post('http://localhost:3032/api/update2',ratingDataImage2);
+          await axios.post('/api/update',ratingDataImage1);
+          await axios.post('/api/update',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
@@ -116,8 +116,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          axios.post('http://localhost:3032/api/update1',ratingDataImage1);
-          axios.post('http://localhost:3032/api/update2',ratingDataImage2);
+          await axios.post('/api/update',ratingDataImage1);
+          await axios.post('/api/update',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){

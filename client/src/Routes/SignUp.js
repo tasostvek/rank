@@ -3,32 +3,66 @@ import axios from 'axios';
 
 
 const SignUp = () => {
-    const [file,setFile] = useState('');
-    const [fileName, setFilename] = useState('');
+    const [file, setFile] = useState('');
+    const [fileName, setFileName] = useState('');
+    const [imageSource, setImageSource] = useState ();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
 
     const onChange = e => {
-        setFile(e.target.files[0]);
-        setFilename(e.target.files[0].name);
+
+        try{
+            const fileSource = e.target.files[0];
+            setFile(fileSource);
+            setFileName(fileSource.name);
+            fileImage(fileSource);
+        }
+        catch (error) {
+            setFile(null);
+            setFileName(null);
+            setImageSource(null);
+        };
+    }
+    
+    const fileImage = (fileInput) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileInput);
+        reader.onloadend = () => {
+            setImageSource(reader.result);
+            console.log("Image set")
+        }
+    }
+
+    const uploadImage = (base64EncodedImage) => {
+       console.log(base64EncodedImage) 
     }
 
     const onSubmit = async e => {
         e.preventDefault();
+
+        if(!imageSource) {
+            alert("Need to submit image")
+            return;
+        }
+        uploadImage(imageSource);
+        console.log("fileInput: " + file);
+        console.log("fileName: " + fileName);
+
         const formData = new FormData();
+
         formData.append('file', file);
         formData.append('name', name);
         formData.append('email', email);
         
         try{
-            await axios.post('/SignUp/api/upload',formData,{
+            axios.post('/api/upload',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
             });
 
             console.log("Image uploaded!")
-            document.getElementById("imageInput").value = "";
+            //document.getElementById("imageInput").value = "";
             //window.location.reload();
         }
         catch(err){

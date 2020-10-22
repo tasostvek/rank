@@ -23,20 +23,22 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 .then(() => console.log('Connected to MongoDB!' ))
 .catch(err => console.log( err ));
 
-/*mongoose.connection.on('connected', () => {
-    console.log("Connected to Mongoose!");
-});*/
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
-app.use(express.static('./client/build'));
+
+if(process.env.NODE.ENV === 'production'){
+    app.use(express.static(path.join(__dirname,'./client/build')));
+    app.get('*', function (req, res){
+        res.sendFile(path.join(__dirname, './client/build','index.html'));
+    });
+}
 
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.post('/api/update1', (req,res) => {
+app.post('/api/update', (req,res) => {
 
     console.log("Updated rating1 has been recieved!");
 
@@ -49,30 +51,12 @@ app.post('/api/update1', (req,res) => {
             }
             else{
                 res.json({
-                    msg:'Updated2!'
+                    msg:'Updated!'
                 });
             }
     })
 });
 
-app.post('/api/update2', (req,res) => {
-
-    console.log("Updated rating2 has been recieved!");
-
-    UserAccount.findByIdAndUpdate(
-        {_id:req.body._id}, 
-        {$set:{rating:req.body.rating}}, 
-        (err) => {
-            if(err) {
-                res.status(500).json({msg: 'Internal server errors with updating2'});
-            }
-            else{
-                res.json({
-                    msg:'Updated2!'
-                });
-            }
-    })
-});
 
 app.post('/api/upload', (req,res) => {
     if(req,res ===null) {

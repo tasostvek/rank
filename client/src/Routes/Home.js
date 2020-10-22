@@ -3,12 +3,13 @@ import axios from 'axios';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  const imageLocation = '/uploads/'
 
 
   useEffect(() => {
     async function getUsers() {
       try {
-        const response = await axios.get("/api/users");
+        const response = await axios.get('/api/users');
         setUsers(response.data);
         console.log("Got users from database!");
       } catch(error) {
@@ -59,12 +60,12 @@ const Home = () => {
   return(
     <div>
         <div className="userImages">
-          {users.map((user) => {                 
+          {users.map((user) => {
             return(
               <div key={user._id} className = "userName"> 
                 <hr/>                   
                 <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name} {user.rating}</h4>
-                <img className = "leaderboard-image" src= {`/uploads/${user.image}`} alt=""/>
+                <img className = "leaderboard-image" src= {`${imageLocation}${user.image}`} alt=""/>
               </div>
             )     
           })}
