@@ -39,7 +39,7 @@ app.use(express.static('./client/build'));
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.post('/api/update', (req,res) => {
+app.post('/Rate/api/update', (req,res) => {
 
     console.log("Updated rating1 has been recieved!");
 
@@ -59,7 +59,7 @@ app.post('/api/update', (req,res) => {
 });
 
 
-app.post('/api/upload', async (req,res) => {
+app.post('/SignUp/api/upload', async (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }

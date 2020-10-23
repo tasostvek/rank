@@ -92,8 +92,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          await axios.post('/api/update',ratingDataImage1);
-          await axios.post('/api/update',ratingDataImage2);
+          await axios.post('/Rate/api/update',ratingDataImage1);
+          await axios.post('/Rate/api/update',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
@@ -117,8 +117,8 @@ const Rank = () => {
         ratingDataImage2.append("rating",ratingArray[random2]);
 
         try{
-          await axios.post('/api/update',ratingDataImage1);
-          await axios.post('/api/update',ratingDataImage2);
+          await axios.post('/Rate/api/update',ratingDataImage1);
+          await axios.post('/Rate/api/update',ratingDataImage2);
         }
         catch(err){
           if(err.response.status === 500){
