@@ -28,18 +28,25 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
+//app.use(express.static("client/build"));
 
-app.use(express.static('./client/build')); 
-/*if(process.env.NODE.ENV === 'production'){
-    app.get('*', function (req, res){
-        res.sendFile(path.join(__dirname, './client/build','index.html'));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+    app.get("/*", function(req, res) {
+      res.sendFile(path.join(__dirname, "./client/build/index.html"));
     });
-}*/
+  }
+else {
+    app.use(express.static(path.join(__dirname, '/client/public')));
+    app.get("/*", function(req, res) {
+      res.sendFile(path.join(__dirname, "./client/public/index.html"));
+    });
+}
 
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.post('/Rate/api/update', (req,res) => {
+app.post('/Rate', (req,res) => {
 
     console.log("Updated rating1 has been recieved!");
 
@@ -59,7 +66,7 @@ app.post('/Rate/api/update', (req,res) => {
 });
 
 
-app.post('/SignUp/api/upload', async (req,res) => {
+app.post('/SignUp', async (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }

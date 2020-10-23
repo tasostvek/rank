@@ -79,7 +79,7 @@ const SignUp = () => {
         
         try{
             console.log("Waiting for upload....")
-            axios.post('/SignUp/api/upload',formData,{
+            axios.post('/SignUp',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
