@@ -18,14 +18,14 @@ const Home = () => {
     getUsers();
   }, []);
 
-  const ratingArray = users.map(function(obj) {
+  /*const ratingArray = users.map(function(obj) {
     const container = {};
 
     container.name = obj.name;
     container.rating = obj.rating;
 
     return obj.rating;
-  })
+  })*/
 
   function insertionSort (ratingList,userList){
     let arrayLength = ratingList.length;
@@ -51,10 +51,10 @@ const Home = () => {
     return userList;
   }
 
-  insertionSort(ratingArray,users)
+  /*insertionSort(ratingArray,users)
   useEffect(() => {
     console.log(ratingArray)
-  });
+  });*/
 
   return(
     <div>
