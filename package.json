@@ -16,7 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://ride-rank.herokuapp.com/",
   "dependencies": {
     "cloudinary": "^1.23.0",
     "concurrently": "^5.3.0",
