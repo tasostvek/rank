@@ -105,6 +105,7 @@ const SignUp = () => {
                 {message ? <Message msg={message}/> : null}
                 <label className="contact-input-title username">Username</label>
                 <input 
+                maxlength="15"
                 name="name" 
                 value={name}
                 type="text" 
@@ -117,7 +118,7 @@ const SignUp = () => {
                 name="make" 
                 value={make}
                 type="text" 
-                placeholder="Enter your car maker" 
+                placeholder="Enter car make" 
                 className="input-field"
                 onChange={(e) => setMake(e.target.value)}
                 />
@@ -126,7 +127,7 @@ const SignUp = () => {
                 name="model" 
                 value={model}
                 type="text" 
-                placeholder="Enter your car model" 
+                placeholder="Enter car model" 
                 className="input-field"
                 onChange={(e) => setModel(e.target.value)}
                 />
@@ -135,7 +136,7 @@ const SignUp = () => {
                 name="year" 
                 value={year}
                 type="text" 
-                placeholder="Enter your car year" 
+                placeholder="Enter car year" 
                 className="input-field"
                 onChange={(e) => setYear(e.target.value)}
                 />
@@ -147,6 +148,7 @@ const SignUp = () => {
                     accept="image/*" 
                     id="imageInput" 
                     type="file" 
+                    placeholder="Choose car image" 
                     onChange={onChange}
                     />
                 </div>
