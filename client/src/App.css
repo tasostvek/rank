@@ -175,12 +175,12 @@ input{
   margin-top:85px;
   margin-left:-5px;
   height: 30px;
-  width: 80px;
+  width: 85px;
   color: black;
   border: 0;
   background-color:#ffffff;
   border-radius: 3px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 input[type="file"] {
@@ -266,10 +266,6 @@ a{
     width: 295px;
     margin-top: 10px;
     height: 50px;
-  }
-
-  .contact-btn {
-    margin-top:75px;
   }
 
   input{
@@ -397,12 +393,12 @@ a{
     margin-top:135px;
     margin-left: -280px;
     height: 30px;
-    width: 80px;
+    width: 85px;
     color: black;
     border: 0;
     background-color:#ffffff;
     border-radius: 3px;
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 
@@ -576,12 +572,12 @@ a{
     margin-top:85px;
     margin-left:-5px;
     height: 30px;
-    width: 80px;
+    width: 85px;
     color: black;
     border: 0;
     background-color:#ffffff;
     border-radius: 3px;
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 
