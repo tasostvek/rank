@@ -8,7 +8,6 @@ import EloRating from 'elo-rating';
 
 const Rank = () => {
     const [users, setUsers] = useState([]);
-    const arrayLength = users.length;
     const history = useHistory();
     var random1 = 0;
     var random2 = 0;
@@ -46,7 +45,7 @@ const Rank = () => {
       return rand2;
     }
 
-    
+    const arrayLength = users.length;
     random1= randomImage(arrayLength);
     random2= randomImage(arrayLength);
 
@@ -150,7 +149,7 @@ const Rank = () => {
     return (
         <div className="row">
             <div className="column" >
-              {users.slice(random1,random1+1).map((user) => {                 
+              {users && users.slice(random1,random1+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name}'s</h4>
@@ -169,7 +168,7 @@ const Rank = () => {
                 <h2>OR</h2>
             </div>
             <div className="column">
-            {users.slice(random2, random2+1).map((user) => {                 
+            {users && users.slice(random2, random2+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
                   <h4>{user.name}'s</h4>
@@ -187,20 +186,6 @@ const Rank = () => {
             </div>
         </div>
     );
-                  /*
-                  <img 
-                    onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
-                    className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
-                  />
-                  <img 
-                    onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
-                    className = "rank-images" 
-                    src= {`/uploads/${user.image}`} 
-                    alt=""
-                  />*/
-    
 }
 
 

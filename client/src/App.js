@@ -4,7 +4,7 @@ import Home from './Routes/Home';
 import Nav from './Routes/Nav';
 import SignUp from './Routes/SignUp';
 import Rate from './Routes/Rate';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 
 const App = () => {
   //Used to sort ELO rating off each image

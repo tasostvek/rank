@@ -18,14 +18,15 @@ const Home = () => {
     getUsers();
   }, []);
 
-  /*const ratingArray = users.map(function(obj) {
+
+  const ratingArray = users.map(function(obj) {
     const container = {};
 
     container.name = obj.name;
     container.rating = obj.rating;
 
     return obj.rating;
-  })*/
+  })
 
   function insertionSort (ratingList,userList){
     let arrayLength = ratingList.length;
@@ -51,28 +52,30 @@ const Home = () => {
     return userList;
   }
 
-  /*insertionSort(ratingArray,users)
+
+  useEffect(()=> {
+    console.log(users);
+  })
+  insertionSort(ratingArray,users)
   useEffect(() => {
     console.log(ratingArray)
-  });*/
+  });
 
   return(
     <div>
         <div className="userImages">
-          Rank
+          {users && users.map((user) => {
+            return(
+              <div key={user._id} className = "userName"> 
+                <hr/>                   
+                <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name}:  {user.year} {user.make} {user.model}</h4>
+                <Image className = "leaderboard-image" cloudName = "tvek" publicId = {user.image}/>
+              </div>
+            )     
+          })}
         </div>
     </div>
   );
 }
-
-/*{users.map((user) => {
-  return(
-    <div key={user._id} className = "userName"> 
-      <hr/>                   
-      <h4 className = "userName-title">{users.indexOf(user)+1}) {user.name}:  {user.year} {user.make} {user.model}</h4>
-      <Image className = "leaderboard-image" cloudName = "tvek" publicId = {user.image}/>
-    </div>
-  )     
-})}*/
 
 export default Home;
