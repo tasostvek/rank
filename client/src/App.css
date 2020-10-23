@@ -543,6 +543,9 @@ a{
   h2{
     font-size:26px;
   }
+  h4{
+    font-size: 22px;
+  }
 
   .rank-OR{
     margin-top: 15px;
@@ -552,25 +555,26 @@ a{
     width: 345px;
     height: 260px;
   }
-  .image-preview{
-  margin-top:65px;
-  margin-left: 140px;
-  width: 260px;
-  height: auto;
-}
 
-.contact-btn {
-  position: absolute;
-  margin-top:85px;
-  margin-left:-5px;
-  height: 30px;
-  width: 80px;
-  color: black;
-  border: 0;
-  background-color:#ffffff;
-  border-radius: 3px;
-  font-size: 17px;
-}
+  .image-preview{
+    margin-top:65px;
+    margin-left: 140px;
+    width: 260px;
+    height: auto;
+  }
+
+  .contact-btn {
+    position: absolute;
+    margin-top:85px;
+    margin-left:-5px;
+    height: 30px;
+    width: 80px;
+    color: black;
+    border: 0;
+    background-color:#ffffff;
+    border-radius: 3px;
+    font-size: 17px;
+  }
 }
 
 

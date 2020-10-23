@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Image } from 'cloudinary-react';
+import {Image} from 'cloudinary-react';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 import EloRating from 'elo-rating';
@@ -8,6 +9,7 @@ import EloRating from 'elo-rating';
 const Rank = () => {
     const [users, setUsers] = useState([]);
     const arrayLength = users.length;
+    const history = useHistory();
     var random1 = 0;
     var random2 = 0;
 
@@ -128,12 +130,7 @@ const Rank = () => {
           }
         }
       }
-      random1= randomImage(arrayLength);
-      random2= randomImage(arrayLength);
-
-      if(random1 === random2 ){
-        random2 = randomComparison(random1, random2);
-      }
+      history.push("/Rate");
     } 
     /*
     useEffect(() => {
@@ -156,7 +153,8 @@ const Rank = () => {
               {users.slice(random1,random1+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
-                  <h4>{user.name}:  {user.year} {user.make} {user.model}</h4>
+                  <h4>{user.name}'s</h4>
+                  <h4>{user.year} {user.make} {user.model}</h4>
                   <Image 
                     onClick={() => imageClick(ratingArray[random1],ratingArray[random2],1)}
                     className = "rank-images" 
@@ -174,7 +172,8 @@ const Rank = () => {
             {users.slice(random2, random2+1).map((user) => {                 
               return(
                 <div key={user._id} className="rank-choice">                  
-                  <h4>{user.name}:  {user.year} {user.make} {user.model}</h4>
+                  <h4>{user.name}'s</h4>
+                  <h4>{user.year} {user.make} {user.model}</h4>
                   <Image 
                     onClick={() => imageClick(ratingArray[random2],ratingArray[random1],2)}
                     className = "rank-images" 
