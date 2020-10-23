@@ -9,7 +9,6 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 const App = () => {
   //Used to sort ELO rating off each image
   return(
-    <Router>
       <div className='contact-form'>
         <div id='body'>
             <Nav/>
@@ -20,7 +19,6 @@ const App = () => {
             </Switch>
         </div>
       </div>
-    </Router>
   );
 }
 

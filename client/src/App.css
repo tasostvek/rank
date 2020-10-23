@@ -352,8 +352,10 @@ a{
 
   .row{
     display: block;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   h4{
