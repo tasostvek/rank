@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const response = await axios.get('/api/users');
+        const response = await axios.get('https://ride-rank.herokuapp.com/api/users');
         setUsers(response.data);
         console.log("Got users from database!");
       } catch(error) {
@@ -52,10 +52,6 @@ const Home = () => {
     return userList;
   }
 
-
-  useEffect(()=> {
-    console.log(users);
-  })
   insertionSort(ratingArray,users)
   useEffect(() => {
     console.log(ratingArray)

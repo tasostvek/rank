@@ -15,7 +15,7 @@ const Rank = () => {
     useEffect(() => {
         async function getUsers() {
           try {
-            const response = await axios.get("/api/users");
+            const response = await axios.get("https://ride-rank.herokuapp.com/api/users");
             setUsers(response.data);
             console.log("Got users from database!");
           } catch(error) {
