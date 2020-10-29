@@ -42,8 +42,13 @@ const SignUp = () => {
         document.getElementById("imageInput").value = "";
     }
 
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
+
+        if(file.size>500000){
+            setMessage("Car image too large")
+            return;
+        }
 
         if(!imageSource) {
             setMessage("Need an image")
@@ -85,7 +90,7 @@ const SignUp = () => {
             console.log(`Year: ${year}`);
             console.log(`Photo: ${imageSource}`);
             console.log("Waiting for upload....")
-            await axios.post('/SignUp',formData,{
+            axios.post('/SignUp',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }

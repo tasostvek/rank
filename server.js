@@ -82,8 +82,7 @@ app.post('/SignUp', (req,res) => {
     try{
         const fileCloudinary = req.body.base64Image
         cloudinary.uploader.upload(fileCloudinary, 
-            {   public_id: `${newFileID}`, 
-                chunk_size: 400000
+            {   public_id: `${newFileID}`
             }
         );
     }
