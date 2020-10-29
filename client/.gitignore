@@ -3,6 +3,7 @@
 # dependencies
 /public/uploads
 /node_modules
+/src/model
 /.pnp
 .pnp.js
 

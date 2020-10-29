@@ -105,7 +105,7 @@ const SignUp = () => {
                 {message ? <Message msg={message}/> : null}
                 <label className="contact-input-title username">Username</label>
                 <input 
-                maxlength="15"
+                maxLength="15"
                 name="name" 
                 value={name}
                 type="text" 
