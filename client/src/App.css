@@ -19,6 +19,11 @@ h4{
   line-height: 1;
 }
 
+#message{
+  padding-right:0px;
+  padding-left:0px;
+}
+
 .title{
   text-align:left;
   color: rgb(250, 219, 119);
@@ -110,19 +115,31 @@ input{
 }
 
 #image-label{
+  background-color: #ffffff;
+  font-size: 16px;
+  color:black;
+  border-radius: 3px;
   cursor: pointer;
   z-index: 1;
   position: absolute;
-  left: 13px;
-  top:2px;
-  height: 50px;
-  width:130px;
+  left: 5px;
+  padding-left: 7px;
+  top:13px;
+  height: 30px;
+  width:110px;
   display: flex;
   align-items: center;
 }
 
 .image-upload-line{
   width: 450px;
+  position: absolute;
+  background-color: inherit;
+}
+
+.button-input{
+  width: 450px;
+  height: 200px;
   position: absolute;
   background-color: inherit;
 }
@@ -139,6 +156,12 @@ input{
   font-size: 18px;
 }
 
+.sign-up-title{
+  background-color: inherit;
+  font-size: 24px;
+  color: rgb(250, 219, 119);
+}
+
 .contact-input-title{
   background-color:inherit;
   width: 28%;
@@ -147,7 +170,7 @@ input{
 }
 
 .contact-input{
-  height: 510px;
+  height: 490px;
   background-color:rgb(25, 37, 48);
   width:480px;
   text-align: center;
@@ -159,28 +182,28 @@ input{
   padding-left:15px;
   padding-right:15px;
   border-radius: 8px;
-  padding-top:5px;
+  padding-top:10px;
 }
 
 .image-preview{
   color:white;
-  margin-top:65px;
-  margin-left: 140px;
-  width: 260px;
+  margin-top: 10px;
+  margin-left: 110px;
+  width: 190px;
   height: auto;
 }
 
 .contact-btn {
   position: absolute;
-  margin-top:85px;
-  margin-left:-5px;
+  margin-top:65px;
+  left: 5px;
   height: 30px;
   width: 85px;
   color: black;
   border: 0;
   background-color:#ffffff;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 input[type="file"] {
@@ -300,6 +323,10 @@ a{
     height:25px;
   }
 
+  .button-input{
+    width: 300px;
+  }
+
   .contact-input{
     height: 470px;
     width:310px;
@@ -313,13 +340,29 @@ a{
   }
 
   #image-label{
-    cursor: pointer;
-    z-index: 1;
-    position: absolute;
-    left: 15px;
     top:0px;
     height: 50px;
-    width:101px;
+    width:85px;
+  }
+
+  .contact-btn {
+    margin-top:75px;
+    left: 10px;
+    height: 30px;
+    width: 85px;
+    color: black;
+    border: 0;
+    background-color:#ffffff;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+
+  .image-preview{
+    color:white;
+    margin-top: 15px;
+    margin-left: 100px;
+    width: 150px;
+    height: auto;
   }
 
   br{
@@ -383,24 +426,6 @@ a{
     width:  290px;
     height: 210px;
   }
-  .image-preview{
-    margin-top:65px;
-    margin-left:100px;
-    width: 200px;
-    height: auto;
-  }
-  .contact-btn {
-    position: absolute;
-    margin-top:135px;
-    margin-left: -280px;
-    height: 30px;
-    width: 85px;
-    color: black;
-    border: 0;
-    background-color:#ffffff;
-    border-radius: 3px;
-    font-size: 16px;
-  }
 }
 
 
@@ -422,6 +447,10 @@ a{
   #menu li{
     display:block;
     padding: 0px;
+  }
+
+  .button-input{
+    width: 350px;
   }
 
   .nav-bar{
@@ -455,10 +484,15 @@ a{
     cursor: pointer;
     z-index: 1;
     position: absolute;
-    left: 9px;
-    top:0px;
+    left: 5px;
+    top:5px;
     height: 50px;
-    width:100px;
+    width:85px;
+  }
+
+  .contact-btn {
+    margin-top:75px;
+    left: 5px;
   }
 
   .input-field {
@@ -512,7 +546,7 @@ a{
   }
   .image-preview{
     margin-left: 100px;
-    width: 220px;
+    width: 180px;
     height: auto;
   }
 
@@ -561,24 +595,12 @@ a{
     height: 260px;
   }
 
-  .image-preview{
-    margin-top:65px;
-    margin-left: 140px;
-    width: 260px;
-    height: auto;
+  .contact-btn {
+    left: 5px;
   }
 
-  .contact-btn {
-    position: absolute;
-    margin-top:85px;
-    margin-left:-5px;
-    height: 30px;
-    width: 85px;
-    color: black;
-    border: 0;
-    background-color:#ffffff;
-    border-radius: 3px;
-    font-size: 16px;
+  #image-label{
+    left: 5px;
   }
 }
 

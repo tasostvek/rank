@@ -25,8 +25,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rank', {
 .catch(err => console.log( err ));
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({ limit: '50mb',extended: false}));
 
 //app.use(express.static("client/build"));
 app.use(express.static('client/build'));
@@ -58,14 +58,14 @@ app.post('/Rate', (req,res) => {
 });
 
 
-app.post('/SignUp', async (req,res) => {
+app.post('/SignUp', (req,res) => {
     if(req,res ===null) {
         return res.status(400).json({msg:'No file uploaded'});
     }
     const file = req.files.file;
 
-    let extension = ''
-    //Check file extension of current image
+    let extension = '';
+    /*//Check file extension of current image
     if(file.name.includes('.jpg')){
         extension = ".jpg"
     }
@@ -74,15 +74,17 @@ app.post('/SignUp', async (req,res) => {
     }
     if(file.name.includes('.png')){
         extension = ".png"
-    }
+    }*/
 
     
     const newFileID = uuidv4()
     const newFileName = newFileID + extension;
     try{
         const fileCloudinary = req.body.base64Image
-        await cloudinary.uploader.upload(fileCloudinary, 
-            { public_id: `${newFileID}` }
+        cloudinary.uploader.upload(fileCloudinary, 
+            {   public_id: `${newFileID}`, 
+                chunk_size: 400000
+            }
         );
     }
     catch(errorr){

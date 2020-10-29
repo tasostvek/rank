@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Message = ({msg}) => {
     return(
-        <div className="alert alert-info alert-dismissible show alert-margin" role="alert">
+        <div id = "message" className="alert alert-info alert-dismissible show alert-margin" role="alert">
             {msg}
         </div>
     );

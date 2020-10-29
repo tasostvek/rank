@@ -42,7 +42,7 @@ const SignUp = () => {
         document.getElementById("imageInput").value = "";
     }
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
         if(!imageSource) {
@@ -76,10 +76,16 @@ const SignUp = () => {
         formData.append('make', make);
         formData.append('model', model);
         formData.append('year', year);
-        
+
+
         try{
+            console.log(`Username: ${name}`);
+            console.log(`Make: ${make}`);
+            console.log(`Model: ${model}`);
+            console.log(`Year: ${year}`);
+            console.log(`Photo: ${imageSource}`);
             console.log("Waiting for upload....")
-            axios.post('/SignUp',formData,{
+            await axios.post('/SignUp',formData,{
                 headers: {
                 'Content-Type': 'multipart/form-data'
                 }
@@ -102,59 +108,61 @@ const SignUp = () => {
     return (
         <div>
             <form className="contact-input" onSubmit={onSubmit}>
-                {message ? <Message msg={message}/> : null}
+                {message ? <Message msg={message}/> : <div className="sign-up-title">Sign Up</div>}
                 <label className="contact-input-title username">Username</label>
                 <input 
-                maxLength="15"
-                name="name" 
-                value={name}
-                type="text" 
-                placeholder="Enter username" 
-                className="input-field"
-                onChange={(e) => setName(e.target.value)}
+                    maxLength="15"
+                    name="name" 
+                    value={name}
+                    type="text" 
+                    placeholder="Enter username" 
+                    className="input-field"
+                    onChange={(e) => setName(e.target.value)}
                 /> 
                 <label className="contact-input-title email">Make</label>
                 <input 
-                name="make" 
-                value={make}
-                type="text" 
-                placeholder="Enter car make" 
-                className="input-field"
-                onChange={(e) => setMake(e.target.value)}
+                    name="make" 
+                    value={make}
+                    type="text" 
+                    placeholder="Enter car make" 
+                    className="input-field"
+                    onChange={(e) => setMake(e.target.value)}
                 />
                 <label className="contact-input-title email">Model</label>
                 <input 
-                name="model" 
-                value={model}
-                type="text" 
-                placeholder="Enter car model" 
-                className="input-field"
-                onChange={(e) => setModel(e.target.value)}
+                    name="model" 
+                    value={model}
+                    type="text" 
+                    placeholder="Enter car model" 
+                    className="input-field"
+                    onChange={(e) => setModel(e.target.value)}
                 />
                 <label className="contact-input-title email">Year</label>
                 <input 
-                name="year" 
-                value={year}
-                type="text" 
-                placeholder="Enter car year" 
-                className="input-field"
-                onChange={(e) => setYear(e.target.value)}
+                    name="year" 
+                    value={year}
+                    type="text" 
+                    placeholder="Enter car year" 
+                    className="input-field"
+                    onChange={(e) => setYear(e.target.value)}
                 />
                 <div className="image-upload-line">
-                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Car Image</label>
+                    <label className="contact-input-title" id="image-label" htmlFor="imageInput">Pick Car Image</label>
                     <input 
-                    name="image" 
-                    className="input-field image-upload" 
-                    accept="image/*" 
-                    id="imageInput" 
-                    type="file" 
-                    placeholder="Choose car image" 
-                    onChange={onChange}
+                        name="image" 
+                        className="input-field image-upload" 
+                        accept="image/*" 
+                        id="imageInput" 
+                        type="file" 
+                        placeholder="Choose car image" 
+                        onChange={onChange}
                     />
                 </div>
+                <div className="button-input">
+                    <button className="contact-btn">Sign Up</button>
+                    <img src={imageSource} className = "image-preview" alt=""/>
+                </div>
                 <br/>
-                <button className="contact-btn">Sign Up</button>
-                <img src={imageSource} className = "image-preview" alt=""/>
             </form>
         </div>
     );
